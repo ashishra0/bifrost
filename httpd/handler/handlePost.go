@@ -6,16 +6,17 @@ import (
 	"log"
 )
 
+// HandlePost binds the incoming request object to a struct defined in model/message.go
 func HandlePost(c *gin.Context) {
 	data := &model.Message{}
 	err := c.Bind(data)
 	if err != nil {
 		log.Fatal(err)
 	}
-	saveToDB(data.Status)
+	SaveToDB(data.Status)
 }
 
-//@todo - save to DB
-func saveToDB(data string) {
+// SaveToDB will append a string to the messageDB variable defined in model/message.go
+func SaveToDB(data string) {
 	model.MessageDB = data
 }

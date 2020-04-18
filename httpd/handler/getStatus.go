@@ -6,6 +6,8 @@ import (
 	"net/http"
 )
 
+// GetStatus will retrieve the saved status string from messageDB defined in model/message.go
+// It sends a response of the saved status or a default status if not present.
 func GetStatus(c *gin.Context) {
 	message := model.MessageDB
 	defaultMessage := "No Power"
@@ -17,6 +19,7 @@ func GetStatus(c *gin.Context) {
 	DefaultStatus()
 }
 
+// DefaultStatus sets the messageDB variable to a default message
 func DefaultStatus() {
 	model.MessageDB = "No Power"
 }

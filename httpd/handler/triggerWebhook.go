@@ -8,6 +8,7 @@ import (
 	"net/http"
 )
 
+// TriggerWebhook sends a post request to a webhook provided by smee.io
 func TriggerWebhook(c * gin.Context) {
 	useless := map[string]string {
 		"status": "ok",
