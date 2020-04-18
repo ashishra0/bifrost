@@ -8,6 +8,8 @@ import (
 	"os"
 )
 
+// StartService runs the gin application.
+// It is the single point of entry in the application.
 func StartService() {
 	// PORT for prod environment
 	port := os.Getenv("PORT")
