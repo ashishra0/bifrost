@@ -8,7 +8,7 @@ import (
 	"net/http"
 )
 
-func PostToSmee(c * gin.Context) {
+func TriggerWebhook(c * gin.Context) {
 	useless := map[string]string {
 		"status": "ok",
 	}

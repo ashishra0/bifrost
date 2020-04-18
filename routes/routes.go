@@ -16,7 +16,7 @@ func StartService() {
 	}
 	router := gin.Default()
 	// To trigger the webhook
-	router.GET("/api/power", handler.PostToSmee)
+	router.GET("/api/power", handler.TriggerWebhook)
 	// To save the response to db
 	router.POST("/api/power/status", handler.HandlePost)
 	// To return the saved response to user
