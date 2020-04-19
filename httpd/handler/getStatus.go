@@ -1,6 +1,7 @@
 package handler
 
 import (
+	"github.com/ashishra0/raspberry-pi-service/helper"
 	"github.com/ashishra0/raspberry-pi-service/model"
 	"github.com/gin-gonic/gin"
 	"net/http"
@@ -10,16 +11,11 @@ import (
 // It sends a response of the saved status or a default status if not present.
 func GetStatus(c *gin.Context) {
 	message := model.MessageDB
-	defaultMessage := "No Power"
+	errorMessage := helper.GetError()
 	if len(message) == 0 {
-		c.String(http.StatusOK, defaultMessage)
+		c.JSON(http.StatusOK, errorMessage)
 	} else {
-		c.String(http.StatusOK, model.MessageDB)
+		c.JSON(http.StatusOK, model.MessageDB)
 	}
-	DefaultStatus()
-}
-
-// DefaultStatus sets the messageDB variable to a default message
-func DefaultStatus() {
-	model.MessageDB = "No Power"
+	helper.SetDefaultStatus()
 }
