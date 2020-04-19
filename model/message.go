@@ -5,6 +5,6 @@ type Message struct {
 	Timestamp string `json:"timestamp"`
 }
 
-var MessageDB map[string] string
+var MessageDB = make(map[string] string)
 
-var ErrorDB map[string] string
+var ErrorDB = make(map[string] string)
