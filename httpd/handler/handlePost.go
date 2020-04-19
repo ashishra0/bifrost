@@ -20,4 +20,5 @@ func HandlePost(c *gin.Context) {
 func SaveToDB(data *model.Message) {
 	model.MessageDB["status"] = data.Status
 	model.MessageDB["timestamp"] = data.Timestamp
+	model.MessageDB["statusCode"] = "200"
 }
