@@ -18,6 +18,7 @@ func SetError() {
 }
 
 func GetError() map[string]string {
+	SetError()
 	return model.ErrorDB
 }
 
