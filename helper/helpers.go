@@ -17,6 +17,7 @@ func GetTime() string {
 func SetError() {
 	model.ErrorDB["status"] = "No power"
 	model.ErrorDB["timestamp"] = GetTime()
+	model.ErrorDB["statusCode"] = "404"
 }
 
 // GetError() is a helper function that returns model.ErrorDB map.
@@ -29,4 +30,5 @@ func GetError() map[string]string {
 func SetDefaultStatus() {
 	model.MessageDB["status"] = "No response from Tesla"
 	model.MessageDB["timestamp"] = GetTime()
+	model.MessageDB["statusCode"] = ""
 }
