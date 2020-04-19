@@ -28,5 +28,5 @@ func GetError() map[string]string {
 // SetDefaultStatus() is a helper function that sets default values to model.MessageDB map after each GET request.
 func SetDefaultStatus() {
 	model.MessageDB["status"] = "No response from Tesla"
-	model.MessageDB["TimeStamp"] = GetTime()
+	model.MessageDB["timestamp"] = GetTime()
 }
