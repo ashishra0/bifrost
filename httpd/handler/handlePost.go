@@ -13,10 +13,11 @@ func HandlePost(c *gin.Context) {
 	if err != nil {
 		log.Fatal(err)
 	}
-	SaveToDB(data.Status)
+	SaveToDB(data)
 }
 
 // SaveToDB will append a string to the messageDB variable defined in model/message.go
-func SaveToDB(data string) {
-	model.MessageDB = data
+func SaveToDB(data *model.Message) {
+	model.MessageDB["status"] = data.Status
+	model.MessageDB["time"] = data.Timestamp
 }
