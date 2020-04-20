@@ -10,9 +10,9 @@ import (
 
 // StartService runs the gin application.
 // It is the single point of entry in the application.
-func StartService() {
+func StartTeslaService() {
 	// PORT for prod environment
-	port := os.Getenv("PORT")
+	port := "5000"
 	if port == "" {
 		log.Fatal("$PORT must be set")
 	}
@@ -24,6 +24,23 @@ func StartService() {
 	// To return the saved response to user
 	router.GET("/api/power/status", handler.GetStatus)
 	// To handle the case of incorrect route
+	router.NoRoute(func(context *gin.Context) {
+		context.AbortWithStatus(http.StatusNotFound)
+	})
+	router.Run(":" + port)
+}
+
+
+func StartAlfredService() {
+	port := os.Getenv("PORT")
+	if port == "" {
+		log.Fatal("$PORT must be set")
+	}
+	router := gin.Default()
+	// To get the data from hasura
+	router.GET("/api/expense", handler.GetExpense)
+	// To forward the event response from hasura
+	router.POST("/api/expense", handler.PostExpense)
 	router.NoRoute(func(context *gin.Context) {
 		context.AbortWithStatus(http.StatusNotFound)
 	})
