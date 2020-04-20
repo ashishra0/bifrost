@@ -6,6 +6,7 @@ import (
 	"golang.org/x/sync/errgroup"
 	"log"
 	"net/http"
+	"os"
 )
 
 var (
@@ -14,9 +15,9 @@ var (
 
 // StartService runs the gin application.
 // It is the single point of entry in the application.
-func StartService() http.Handler {
+func StartService() {
 	// PORT for prod environment
-	port := "5000"
+	port := os.Getenv("PORT")
 	if port == "" {
 		log.Fatal("$PORT must be set")
 	}
@@ -35,5 +36,5 @@ func StartService() http.Handler {
 	router.NoRoute(func(context *gin.Context) {
 		context.AbortWithStatus(http.StatusNotFound)
 	})
-	return router
+	router.Run(":" + port)
 }
