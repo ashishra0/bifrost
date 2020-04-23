@@ -23,10 +23,12 @@ func StartService() {
 	router.POST("/api/power/status", handler.HandlePost)
 	// To return the saved response to user
 	router.GET("/api/power/status", handler.GetStatus)
+	// To create a new record
+	router.POST("/api/expense/create", handler.CreateExpense)
 	// To get the data from hasura
 	router.GET("/api/expense", handler.GetExpense)
-	// To forward the event response from hasura
-	router.POST("/api/expense", handler.PostExpense)
+	// To receive the event payload from hasura
+	router.POST("/api/expense", handler.FromHasura)
 	// To handle the case of incorrect route
 	router.NoRoute(func(context *gin.Context) {
 		context.AbortWithStatus(http.StatusNotFound)
