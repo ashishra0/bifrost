@@ -38,3 +38,10 @@ type Table struct {
 	Schema string `json:"schema"`
 	Name   string `json:"name"`
 }
+// Expense is a struct having a field of type Expenses
+// Field Expenses is a slice of type New
+// It gets appended a new expenses whenever there is a
+// POST request with data sent to /api/expense/create
+type Expense struct {
+	Expenses []New
+}
