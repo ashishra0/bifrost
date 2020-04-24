@@ -20,13 +20,13 @@ func SetError() {
 	model.ErrorDB["statusCode"] = "404"
 }
 
-// GetError() is a helper function that returns model.ErrorDB map.
+// GetError is a helper function that returns model.ErrorDB map.
 func GetError() map[string]string {
 	SetError()
 	return model.ErrorDB
 }
 
-// SetDefaultStatus() is a helper function that sets default values to model.MessageDB map after each GET request.
+// SetDefaultStatus is a helper function that sets default values to model.MessageDB map after each GET request.
 func SetDefaultStatus() {
 	model.MessageDB["status"] = "No response from Tesla"
 	model.MessageDB["timestamp"] = GetTime()
