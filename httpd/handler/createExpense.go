@@ -23,14 +23,12 @@ func CreateExpense(c *gin.Context) {
 	if err != nil {
 		log.Fatal(err)
 	}
-	// @todo: Send this data to hasura DB
 	SendMutation(record)
 }
 
 // SaveVar will add new record in the []New and
 // return a map[string]interface{} of that record.
-func SaveVar (e *model.Expense, expense model.New) map[string]interface{} {
-	e.Expenses = append(e.Expenses, expense)
+func SaveVar (expense model.New) map[string]interface{} {
 	return map[string]interface{}{
 		"item_name": expense.ItemName,
 		"item_cost": expense.ItemCost,
@@ -38,11 +36,10 @@ func SaveVar (e *model.Expense, expense model.New) map[string]interface{} {
 }
 
 // SendMutation saves the return type of SaveVar function
-// and save it as a variable and pass it to SendToHasura function
-// which is responsible for sending the actual mutation to the grapqhl
+// and save it as a variable and pass it to SendToHasura() func
+// which is responsible for sending the actual mutation to the graphql
 // server.
 func SendMutation(v model.New) {
-	expenses := &model.Expense{}
-	variables := SaveVar(expenses, v)
+	variables := SaveVar(v)
 	query.SendToHasura(variables)
 }
