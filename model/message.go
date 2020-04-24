@@ -2,8 +2,8 @@ package model
 
 // Message defines the structure of the payload.
 type Message struct {
-		Status    string `json:"status"`
-		Timestamp string `json:"timestamp"`
+	Status    string `json:"status"`
+	Timestamp string `json:"timestamp"`
 }
 
 // MessageDB is a key value pair of the message payload.
