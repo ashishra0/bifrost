@@ -6,9 +6,9 @@ import (
 	"log"
 )
 
-// FetchFromHasura sends a query to hasura to fetch
+// GetQuery sends a query to hasura to fetch
 // all values from the db.
-func FetchFromHasura() model.Expense {
+func GetQuery() model.Expense {
 	client := gql.NewClient("http://localhost:8080/v1/graphql", nil)
 	var record model.Expense
 	err := client.Execute(gql.Request{Query: `query {

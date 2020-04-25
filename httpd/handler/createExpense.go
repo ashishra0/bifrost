@@ -41,5 +41,5 @@ func SaveVar(expense model.New) map[string]interface{} {
 // server.
 func SendMutation(v model.New) {
 	variables := SaveVar(v)
-	query.SendToHasura(variables)
+	query.InsertQuery(variables)
 }
