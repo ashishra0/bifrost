@@ -12,8 +12,11 @@ func GetQuery() model.Expense {
 	client := gql.NewClient("http://localhost:8080/v1/graphql", nil)
 	var record model.Expense
 	err := client.Execute(gql.Request{Query: `query {
-  Expense {
-    item_name
+  Expense (order_by: {date: desc}) {
+    item_id
+    item_name,
+    item_cost,
+		date
   }
 }`}, &record)
 	if err != nil {
