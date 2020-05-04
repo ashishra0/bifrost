@@ -1,9 +1,10 @@
 package query
 
 import (
+	"log"
+
 	"github.com/ashishra0/raspberry-pi-service/model"
 	"github.com/shahidhk/gql"
-	"log"
 )
 
 // GetQuery sends a query to hasura to fetch
@@ -12,7 +13,7 @@ func GetQuery() model.Expense {
 	client := gql.NewClient("http://localhost:8080/v1/graphql", nil)
 	var record model.Expense
 	err := client.Execute(gql.Request{Query: `query {
-  Expense (order_by: {date: desc}) {
+  Expense (order_by: {item_id: desc}) {
     item_id
     item_name,
     item_cost,
