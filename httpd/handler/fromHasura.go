@@ -1,10 +1,10 @@
 package handler
 
 import (
-	"fmt"
-	"github.com/ashishra0/raspberry-pi-service/model"
-	"github.com/gin-gonic/gin"
-	"log"
+		"fmt"
+		"github.com/ashishra0/raspberry-pi-service/model"
+		"github.com/gin-gonic/gin"
+		"log"
 )
 
 // FromHasura function handles the payload emitted by hasura event system.
