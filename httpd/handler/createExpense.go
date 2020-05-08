@@ -2,8 +2,8 @@ package handler
 
 import (
 	"encoding/json"
-	"github.com/ashishra0/raspberry-pi-service/model"
-	"github.com/ashishra0/raspberry-pi-service/query"
+	"github.com/ashishra0/bifrost/model"
+	"github.com/ashishra0/bifrost/query"
 	"github.com/gin-gonic/gin"
 	"io/ioutil"
 	"log"

@@ -1,7 +1,7 @@
 package handler
 
 import (
-		"github.com/ashishra0/raspberry-pi-service/query"
+		"github.com/ashishra0/bifrost/query"
 		"github.com/gin-gonic/gin"
 		"net/http"
 )

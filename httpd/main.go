@@ -1,6 +1,6 @@
 package main
 
-import "github.com/ashishra0/raspberry-pi-service/routes"
+import "github.com/ashishra0/bifrost/routes"
 
 func main() {
 	routes.StartService()

@@ -1,7 +1,7 @@
 package query
 
 import (
-	"github.com/ashishra0/raspberry-pi-service/model"
+	"github.com/ashishra0/bifrost/model"
 	"github.com/shahidhk/gql"
 	"log"
 )

@@ -1,4 +1,4 @@
-module github.com/ashishra0/raspberry-pi-service
+module github.com/ashishra0/bifrost
 
 go 1.13
 

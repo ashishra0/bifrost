@@ -2,7 +2,7 @@ package handler
 
 import (
 		"fmt"
-		"github.com/ashishra0/raspberry-pi-service/model"
+		"github.com/ashishra0/bifrost/model"
 		"github.com/gin-gonic/gin"
 		"log"
 )

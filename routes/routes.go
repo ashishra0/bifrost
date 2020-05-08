@@ -1,7 +1,7 @@
 package routes
 
 import (
-	"github.com/ashishra0/raspberry-pi-service/httpd/handler"
+	"github.com/ashishra0/bifrost/httpd/handler"
 	"github.com/gin-gonic/gin"
 	"log"
 	"net/http"

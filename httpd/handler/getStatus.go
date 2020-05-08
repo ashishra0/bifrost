@@ -1,8 +1,8 @@
 package handler
 
 import (
-	"github.com/ashishra0/raspberry-pi-service/helper"
-	"github.com/ashishra0/raspberry-pi-service/model"
+	"github.com/ashishra0/bifrost/helper"
+	"github.com/ashishra0/bifrost/model"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )
