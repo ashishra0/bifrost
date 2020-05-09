@@ -35,7 +35,9 @@ jobs:
       - run:
           name: Login To Heroku
           command: |
-            heroku login
+            heroku login -i
+            $heroku_email
+            $heroku_password
       - run:
           name: Deploy Master to Heroku
           command: |
