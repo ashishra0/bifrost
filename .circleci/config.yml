@@ -24,6 +24,10 @@ jobs:
       # specify any bash command here prefixed with `run: `
       - run: go get -v -t -d ./...
       - run:
+          - name: Login To Heroku
+            - command: |
+                - heroku login
+      - run:
           name: Deploy Master to Heroku
           command: |
             HEROKU_APP_NAME="bifrost-beta"
