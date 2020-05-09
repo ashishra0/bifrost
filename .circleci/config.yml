@@ -22,25 +22,22 @@ jobs:
       - checkout
 
       # specify any bash command here prefixed with `run: `
-      - run:
-          name: Install Curl
-          command: |
-            sudo apt-get update
-            sudo apt-get install curl
       - run: go get -v -t -d ./...
-      - run:
-          name: Install heroku CLI
-          command: |
-            curl https://cli-assets.heroku.com/install.sh | sh
-      - run:
-          name: Login To Heroku
-          command: |
-            heroku login -i
-            ashishrao2598@gmail.com
-            $heroku_password
       - run:
           name: Deploy Master to Heroku
           command: |
             HEROKU_APP_NAME="bifrost-beta"
             git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git master
 #      - run: go test -v ./.. .
+
+workflows:
+  version: 2
+  build-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build # only run deploy-via-git job if the build job has completed
+          filters:
+            branches:
+              only: master
