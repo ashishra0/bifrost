@@ -35,9 +35,8 @@ jobs:
       - run:
           name: Login To Heroku
           command: |
-            HEROKU_EMAIL="ashishrao2598@gmail.com"
             heroku login -i
-            $HEROKU_EMAIL
+            ashishrao2598@gmail.com
             $heroku_password
       - run:
           name: Deploy Master to Heroku
