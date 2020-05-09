@@ -10,7 +10,7 @@ import (
 // GetQuery sends a query to hasura to fetch
 // all values from the db.
 func GetQuery() model.Expense {
-	client := gql.NewClient("http://localhost:8080/v1/graphql", nil)
+	client := gql.NewClient("https://alfred-expense-beta.herokuapp.com/v1/graphql", nil)
 	var record model.Expense
 	err := client.Execute(gql.Request{Query: `query {
   Expense (order_by: {item_id: desc}) {
